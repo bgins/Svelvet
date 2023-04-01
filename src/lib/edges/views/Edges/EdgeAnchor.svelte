@@ -4,7 +4,7 @@
 </script>
 
 <!-- renders simple half-circle for the anchor point of the edge -->
-<circle cx={x} cy={y} r={5} stroke="white" fill="black" />
+<circle cx={x} cy={y} r={0} stroke="white" fill="black" />
 
 <style>
   circle {
