@@ -52,7 +52,7 @@
     console.log(edge.className);
   };
 
-  const defaultArrow = `0 0, 9 4.5, 0 9`;
+  const defaultArrow = `0 0, 7 3.5, 0 7`;
 </script>
 
 <defs>
@@ -60,11 +60,11 @@
     id="arrow"
     markerWidth="9"
     markerHeight="9"
-    refX="8"
-    refY="4"
+    refX="6.5"
+    refY="3.5"
     orient="auto"
   >
-    <polygon points={defaultArrow} fill="gray" />
+    <polygon points={defaultArrow} fill={edgeColor} />
   </marker>
 </defs>
 
