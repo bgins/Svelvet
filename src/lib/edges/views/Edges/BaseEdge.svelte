@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { findStore } from '../../../store/controllers/storeApi';
-  import { getEdgeById } from '../../../edges/controllers/util';
-  import EdgeText from '../Edges/EdgeText.svelte';
-  import { get } from 'svelte/store';
-  import type { EdgeProps } from '../Edges/types';
+  import { findStore } from "../../../store/controllers/storeApi";
+  import { getEdgeById } from "../../../edges/controllers/util";
+  import EdgeText from "../Edges/EdgeText.svelte";
+  import { get } from "svelte/store";
+  import type { EdgeProps } from "../Edges/types";
   export let baseEdgeProps: EdgeProps;
   export let canvasId;
   // destructuring the props passed in from the parent component
@@ -75,7 +75,7 @@ highlights on hover -->
     id={`edgeSelector`}
     d={path}
     fill="transparent"
-    stroke={'red'}
+    stroke={"red"}
     stroke-opacity="0"
     stroke-width="20"
     on:contextmenu={handleRightClick}
@@ -89,7 +89,7 @@ highlights on hover -->
     class={animate ? `animate ${edge.className}` : `${edge.className}`}
     d={path}
     fill="transparent"
-    stroke={edgeColor ? edgeColor : 'gray'}
+    stroke={edgeColor ? edgeColor : "gray"}
     marker-end="url(#arrow)"
     aria-label="svg-path"
   />
@@ -98,7 +98,7 @@ highlights on hover -->
     class={animate ? `animate ${edge.className}` : `${edge.className}`}
     d={path}
     fill="transparent"
-    stroke={edgeColor ? edgeColor : 'gray'}
+    stroke={edgeColor ? edgeColor : "gray"}
     aria-label="svg-path"
   />
 {/if}
@@ -116,10 +116,5 @@ highlights on hover -->
     from {
       stroke-dashoffset: 1000000;
     }
-  }
-
-  #edgeSelector:hover {
-    stroke: 'red';
-    stroke-opacity: 0.5;
   }
 </style>
