@@ -20,7 +20,7 @@
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
-    "prepare": "svelte-kit sync",
+    "prepare": "svelte-kit build && svelte-kit sync",
     "test": "vitest run tests/unit --silent=false",
     "test-coverage": "vitest run tests/unit --coverage",
     "test:unit": "vitest tests/unit",
