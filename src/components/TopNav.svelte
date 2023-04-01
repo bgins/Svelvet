@@ -1,12 +1,12 @@
 <script lang="ts">
-  import logo from '../assets/Logo 1.svg';
-  import github from '../assets/github-icon-white.svg';
-  import { page } from '$app/stores';
-  import MobileHomeNav from './MobileHomeNav.svelte';
-  import MobileDocsNav from './MobileDocsNav.svelte';
-  import { signInWithGithub, logout, userInfo } from '../supabase-db';
+  import logo from "../assets/Logo 1.svg";
+  import github from "../assets/github-icon-white.svg";
+  import { page } from "$app/stores";
+  import MobileHomeNav from "./MobileHomeNav.svelte";
+  import MobileDocsNav from "./MobileDocsNav.svelte";
+  // import { signInWithGithub, logout, userInfo } from '../supabase-db';
 
-  import { userInfoStore } from '../authStoreTs';
+  import { userInfoStore } from "../authStoreTs";
 
   let { user, logged_in, user_avatar } = userInfoStore;
   // use set method on user writable and set it equal to the return value of userIndo
@@ -18,7 +18,7 @@
 
 <svelte:window bind:scrollY={y} />
 <!-- Toggled Mobile Navbar -->
-{#if activeLink.includes('docs')}
+{#if activeLink.includes("docs")}
   <MobileDocsNav />
 {:else}
   <MobileHomeNav />
@@ -35,7 +35,7 @@
       id="home"
       href="/"
       on:click={() => {
-        activeLink = '/';
+        activeLink = "/";
       }}
       class="text-3xl text-gray-700 font-nunito font-medium tracking-wide ml-2 mr-6"
       >svelvet</a
@@ -124,37 +124,37 @@
           >Svelvet 5.0</a
         >
         <a
-        target="_blank"
-        class="hover:text-rose-500 {activeLink.includes('blog')
-          ? 'text-rose-500'
-          : ''}"
-        href="https://medium.com/@hor.val/svelvet-6-0-the-svelte-component-library-for-building-interactive-node-based-diagrams-81dafa2d50cd"
-        >Svelvet 6.0</a
-      >
+          target="_blank"
+          class="hover:text-rose-500 {activeLink.includes('blog')
+            ? 'text-rose-500'
+            : ''}"
+          href="https://medium.com/@hor.val/svelvet-6-0-the-svelte-component-library-for-building-interactive-node-based-diagrams-81dafa2d50cd"
+          >Svelvet 6.0</a
+        >
       </div>
     </div>
 
     <!-- Add logic for OAuth and conditionally render if the user is logged in, change button text to sign out and vice versa -->
 
     {#if $user}
-      <button on:click={logout}>
-        <!-- <div class="login-container rounded-full px-4 py-1 bg-rose-100 text-red-400 tracking-wider hover:text-rose-500 hover:bg-white">Logout
+      <!-- <button on:click={logout}> -->
+      <!-- <div class="login-container rounded-full px-4 py-1 bg-rose-100 text-red-400 tracking-wider hover:text-rose-500 hover:bg-white">Logout
           <img src={$user_avatar} alt="user pic"/>
         </div> -->
-        <div class="login-container px-6 py-3 btn-primary">
+      <!-- <div class="login-container px-6 py-3 btn-primary">
           Logout
           <img src={$user_avatar} alt="user pic" />
         </div>
-      </button>
+      </button> -->
 
       <!-- <img id="github-avatar" alt="github-avatar-photo"> -->
     {:else}
-      <button on:click={signInWithGithub}
+      <!-- <button on:click={signInWithGithub}
         ><div class="login-container px-6 py-3 btn-primary">
           Log In
           <img src={github} alt="github-logo" />
         </div></button
-      >
+      > -->
     {/if}
   </nav>
 </div>

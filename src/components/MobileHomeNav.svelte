@@ -1,13 +1,13 @@
 <script lang="ts">
-  import logo from '../assets/Logo 1.svg';
-  import { slide } from 'svelte/transition';
+  import logo from "../assets/Logo 1.svg";
+  import { slide } from "svelte/transition";
 
   /* import store so that we can check if there's a user that is loggin in */
-  import { userInfoStore } from '../authStoreTs';
+  import { userInfoStore } from "../authStoreTs";
   /* import supabase functionality for user login / logout */
-  import { signInWithGithub, logout } from '../supabase-db';
+  // import { signInWithGithub, logout } from '../supabase-db.ts.bak';
   /* importing GitHub logo from assets */
-  import github from '../assets/github-icon-white.svg';
+  import github from "../assets/github-icon-white.svg";
 
   let { user, logged_in, user_avatar } = userInfoStore;
 
@@ -28,9 +28,9 @@
 
     function update({ enabled }) {
       if (enabled) {
-        window.addEventListener('click', handleOutsideClick);
+        window.addEventListener("click", handleOutsideClick);
       } else {
-        window.removeEventListener('click', handleOutsideClick);
+        window.removeEventListener("click", handleOutsideClick);
       }
     }
 
@@ -38,8 +38,8 @@
     return {
       update,
       destroy() {
-        window.removeEventListener('click', handleOutsideClick);
-      }
+        window.removeEventListener("click", handleOutsideClick);
+      },
     };
   }
 </script>
@@ -56,7 +56,8 @@
     <a
       id="home"
       href="/"
-      class="text-3xl text-gray-700 font-nunito font-medium tracking-wide ml-2 mr-6">svelvet</a
+      class="text-3xl text-gray-700 font-nunito font-medium tracking-wide ml-2 mr-6"
+      >svelvet</a
     >
   </div>
   <button class="outline-none mobile-menu-button pl-8 " on:click={toggleMenu}>
@@ -76,7 +77,9 @@
         <a on:click={toggleMenu} href="/" class="block py-6">Home</a>
       </li>
       <li>
-        <a on:click={toggleMenu} href="/docs/installation" class="block py-6">Documentation</a>
+        <a on:click={toggleMenu} href="/docs/installation" class="block py-6"
+          >Documentation</a
+        >
       </li>
       <!-- //TODO create button for create page -->
       <li>
@@ -100,23 +103,26 @@
       </li>
       <!-- added login / logout button link! -->
 
-      {#if $user}
-      <button on:click={logout}>
-        <div class="login-container rounded-full px-4 py-1 bg-rose-100 text-red-400 tracking-wider hover:text-rose-500 hover:bg-white">Logout 
-        <img src={$user_avatar} alt="user pic"/>
-      </div> 
-    </button>
-    {:else}
-      <button on:click={signInWithGithub}><div class="login-container px-6 py-3 btn-primary">
-        Log In
-        <img src={github} alt="github-logo" />
-      </div></button>
-    {/if}
+      <!-- {#if $user}
+        <button on:click={logout}>
+          <div
+            class="login-container rounded-full px-4 py-1 bg-rose-100 text-red-400 tracking-wider hover:text-rose-500 hover:bg-white"
+          >
+            Logout
+            <img src={$user_avatar} alt="user pic" />
+          </div>
+        </button>
+      {:else}
+        <button on:click={signInWithGithub}
+          ><div class="login-container px-6 py-3 btn-primary">
+            Log In
+            <img src={github} alt="github-logo" />
+          </div></button
+        >
+      {/if} -->
     </ul>
   </div>
 {/if}
-
-
 
 <style>
   #navMenu > span {
@@ -157,7 +163,7 @@
     transform: translateY(-9px) rotate(90deg);
   }
 
-  .login-container{
+  .login-container {
     display: flex;
     width: 8em;
     justify-content: space-between;
@@ -168,7 +174,7 @@
     align-items: center;
     flex: 1;
     float: left;
-    padding: .25em 1em .25em;
+    padding: 0.25em 1em 0.25em;
   }
 
   .login-container img {
@@ -178,5 +184,4 @@
     width: 32px;
     border-radius: 50%;
   }
-
 </style>
